@@ -26,7 +26,7 @@ namespace Questao5.Tests.Controllers
         }
 
         [Fact]
-        public void GetBalance_ReturnsOk_WhenServiceReturnsSuccess()
+        public void GetBalance_ShouldReturnsOk_WhenServiceReturnsSuccess()
         {
             // Arrange
             var expectedBalance = "R$ 4,00";
@@ -50,7 +50,7 @@ namespace Questao5.Tests.Controllers
         [Theory]
         [InlineData(CurrentAccountErrorType.INVALID_ACCOUNT)]
         [InlineData(CurrentAccountErrorType.INACTIVE_ACCOUNT)]
-        public void GetBalance_ReturnsBadRequest_WhenServiceReturnsFailure(CurrentAccountErrorType errorType)
+        public void GetBalance_ShouldReturnsBadRequest_WhenServiceReturnsFailure(CurrentAccountErrorType errorType)
         {
             // Arrange
             var serviceResult = CurrentAccountResult<AccountBalanceResponse>.Failure(errorType);
@@ -70,7 +70,7 @@ namespace Questao5.Tests.Controllers
         }
 
         [Fact]
-        public void PostTransaction_ReturnsOk_WhenServiceReturnsSuccess()
+        public void PostTransaction_ShouldReturnsOk_WhenServiceReturnsSuccess()
         {
             // Arrange
             var expectedId = Guid.NewGuid();
@@ -97,7 +97,7 @@ namespace Questao5.Tests.Controllers
         [InlineData(CurrentAccountErrorType.INVALID_VALUE)]
         [InlineData(CurrentAccountErrorType.INVALID_TYPE)]
         [InlineData(CurrentAccountErrorType.INVALID_REQUEST)]
-        public void PostTransaction_ReturnsBadRequest_WhenServiceReturnsFailure(CurrentAccountErrorType errorType)
+        public void PostTransaction_ShouldReturnsBadRequest_WhenServiceReturnsFailure(CurrentAccountErrorType errorType)
         {
             // Arrange
             var serviceResult = CurrentAccountResult<TransactionResponse>.Failure(errorType);

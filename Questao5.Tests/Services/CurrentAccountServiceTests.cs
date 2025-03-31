@@ -27,7 +27,7 @@ namespace Questao5.Tests.Services
 
         [Theory]
         [MemberData(nameof(GetTransactionsData))]
-        public void GetAccountBalance_ReturnsExpectedResults_WhenAccountConditionsSatisfied(List<Movimento> transactions, double expectedBalance)
+        public void GetAccountBalance_ShouldReturnsExpectedResults_WhenAccountConditionsAreSatisfied(List<Movimento> transactions, double expectedBalance)
         {
             // Arrange
             var account = new List<ContaCorrente>
@@ -51,7 +51,7 @@ namespace Questao5.Tests.Services
         [Theory]
         [InlineData(CurrentAccountErrorType.INVALID_ACCOUNT)]
         [InlineData(CurrentAccountErrorType.INACTIVE_ACCOUNT)]
-        public void GetAccountBalance_ReturnsExpectedError_WhenAccountIsInvalidOrInactive(CurrentAccountErrorType expectedError)
+        public void GetAccountBalance_ShouldReturnsExpectedError_WhenAccountIsInvalidOrInactive(CurrentAccountErrorType expectedError)
         {
             // Arrange
             var account = new List<ContaCorrente>
@@ -70,7 +70,7 @@ namespace Questao5.Tests.Services
         }
 
         [Fact]
-        public void AddMoviment_ReturnsExpectedResults_WhenAllConditionsSatisfied()
+        public void AddMoviment_ShouldReturnsExpectedResults_WhenAllConditionsAreSatisfied()
         {
             // Arrange
             var account = new List<ContaCorrente>
@@ -101,7 +101,7 @@ namespace Questao5.Tests.Services
         [Theory]
         [InlineData(CurrentAccountErrorType.INVALID_TYPE, 'B', 1)]
         [InlineData(CurrentAccountErrorType.INVALID_VALUE, 'C', 0)]
-        public void AddMoviment_ReturnsExpectedError_WhenRequestConditionsUnsatisfied(CurrentAccountErrorType expectedError,
+        public void AddMoviment_ShouldReturnsExpectedError_WhenRequestConditionsAreUnsatisfied(CurrentAccountErrorType expectedError,
             char transactionType, double transactionValue)
         {
             // Arrange
@@ -124,7 +124,7 @@ namespace Questao5.Tests.Services
 
         [Theory]
         [MemberData(nameof(AddMovimentErrorData))]
-        public void AddMoviment_ReturnsExpectedError_WhenDatabaseReturnsFailure(CurrentAccountErrorType expectedError,
+        public void AddMoviment_ShouldReturnsExpectedError_WhenDatabaseReturnsFailure(CurrentAccountErrorType expectedError,
             List<ContaCorrente> account)
         {
             // Arrange
